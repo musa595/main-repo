@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p id="name"></p>
+<p id="age"></p>
+<p id="hobby"></p>
+<p id="grade"></p>
+<p id="1"></p>
+<p id="2"></p>
+<p id="3"></p>
+<p id="4"></p>
+<button id="btn">click me</button>
+<button id="dont click me">dont click me</button>
+
+<body>
+    <script>
+        var student = {
+            name: "musa",
+            age: "14",
+            hobby: "gaming",
+            grade: "8"
+        };
+        document.getElementById("btn").addEventListener("click", function() {
+            document.getElementById("name").innerHTML = "name: " + student.name;
+            document.getElementById("age").innerHTML = "age: " + student.age;
+            document.getElementById("hobby").innerHTML = "hobby: " + student.hobby;
+            document.getElementById("grade").innerHTML = "grade: " + student.grade;
+        })
+        document.getElementById("dont click me")
+            .addEventListener("click", function() {
+                document.getElementById("name").innerHTML = " "
+                document.getElementById("age").innerHTML = " "
+                document.getElementById("hobby").innerHTML = ""
+                document.getElementById("grade").innerHTML = " "
+
+            })
+    </script>
+
+
+</body>
+
+</html>

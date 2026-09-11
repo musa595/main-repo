@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        font-family: Arial, sans-serif;
+        background: #f3f3f3;
+    }
+    
+    #result,
+    #result6,
+    #result7,
+    #result8 {
+        width: min(320px, 80vw);
+        min-height: 60px;
+        padding: 18px 24px;
+        background-color: aquamarine;
+        border-radius: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        position: static;
+        margin: 0;
+    }
+    
+    #btn {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 12px;
+        background: #1d3557;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    
+    #btn:hover {
+        background: #16314f;
+        outline: black;
+        border-radius: 25px;
+        outline-width: 25px;
+    }
+</style>
+
+<body>
+    <div id="result">
+        name: <span id="result0"></span>
+    </div>
+    <div id="result6">
+        <p id="result1">grade:</p>
+    </div>
+    <div id="result7">
+        <p id="result2">school:</p>
+    </div>
+    <div id="result8">
+        <p id="result3">hobby:</p>
+    </div>
+    <button id="btn" onclick="hehe()">profile data</button>
+</body>
+<script>
+    document.getElementById("btn")
+    document.addEventListener("click", function() {
+        document.getElementById("result").innerHTML = "name: musa"
+        document.getElementById("result1").innerHTML = "grade: 7"
+        document.getElementById("result2").innerHTML = "school: lecole mondiale"
+        document.getElementById("result3").innerHTML = "hobby: gaming"
+    })
+</script>
+
+</html>

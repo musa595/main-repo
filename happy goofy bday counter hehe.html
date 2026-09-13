@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+    }
+
+    .page {
+      width: 350px;
+      margin: 80px auto;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    #title {
+      color: #263f56;
+      font-size: 30px;
+      font-weight: normal;
+    }
+
+    #number {
+      margin: 20px;
+      color: #263f56;
+      font-size: 45px;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: 1px solid #ef534b;
+      border-radius: 3px;
+      color: #ef534b;
+      background: white;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #fff4f2;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1 id="title"></h1>
+    <p id="number"></p>
+    <button id="count-button"></button>
+  </main>
+
+  <script>
+    let count = 0;
+    const title = document.getElementById('title');
+    const number = document.getElementById('number');
+    const countButton = document.getElementById('count-button');
+
+    title.textContent = 'Simple Counter';
+    number.textContent = count;
+    countButton.textContent = 'Add a goofy 1';
+
+    countButton.addEventListener('click', function () {
+      count = count + 1;
+      number.textContent = count;
+    });
+  </script>
+</body>
+</html>

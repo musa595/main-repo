@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Zoo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7f2;
+      color: #333;
+    }
+
+    .page {
+      width: 700px;
+      max-width: calc(100% - 30px);
+      margin: 40px auto;
+      padding: 25px;
+      background: white;
+      border: 1px solid #cfd8cc;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: #315c3a;
+      font-size: 32px;
+      font-weight: normal;
+    }
+
+    #intro {
+      margin: 0 0 25px;
+      color: #5d6b60;
+      line-height: 1.5;
+    }
+
+    .zones {
+      display: flex;
+      gap: 12px;
+    }
+
+    .zone {
+      flex: 1;
+      min-height: 150px;
+      padding: 15px;
+      border: 1px solid #b8cdb9;
+      background: #edf6ed;
+    }
+
+    .zone h2 {
+      margin: 0 0 10px;
+      color: #315c3a;
+      font-size: 20px;
+      font-weight: normal;
+    }
+
+    .animal {
+      min-height: 45px;
+      margin: 0 0 12px;
+      padding: 10px;
+      background: white;
+      border: 1px solid #d6dfd5;
+    }
+
+    button {
+      padding: 8px 12px;
+      border: 1px solid #56815d;
+      color: #315c3a;
+      background: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e5f0e5;
+    }
+
+    #message {
+      min-height: 25px;
+      margin: 22px 0 0;
+      color: #315c3a;
+    }
+
+    @media (max-width: 650px) {
+      .zones {
+        display: block;
+      }
+
+      .zone {
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1 id="title"></h1>
+    <p id="intro"></p>
+
+    <section class="zones">
+      <div class="zone">
+        <h2 id="lion-title"></h2>
+        <p class="animal" id="lion"></p>
+        <button id="lion-button"></button>
+      </div>
+
+      <div class="zone">
+        <h2 id="monkey-title"></h2>
+        <p class="animal" id="monkey"></p>
+        <button id="monkey-button"></button>
+      </div>
+
+      <div class="zone">
+        <h2 id="penguin-title"></h2>
+        <p class="animal" id="penguin"></p>
+        <button id="penguin-button"></button>
+      </div>
+    </section>
+
+    <p id="message"></p>
+  </main>
+
+  <script>
+    const title = document.getElementById('title');
+    const intro = document.getElementById('intro');
+    const message = document.getElementById('message');
+
+    title.textContent = 'My Digital Zoo Manager';
+    intro.textContent = 'Click the buttons to look after the animals in the zoo.';
+
+    document.getElementById('lion-title').textContent = 'Lion Zone';
+    document.getElementById('monkey-title').textContent = 'Monkey Zone';
+    document.getElementById('penguin-title').textContent = 'Penguin Zone';
+
+    document.getElementById('lion').textContent = 'Leo is waiting for food.';
+    document.getElementById('monkey').textContent = 'Milo is sitting in a tree.';
+    document.getElementById('penguin').textContent = 'Pip is swimming.';
+
+    document.getElementById('lion-button').textContent = 'Feed lion';
+    document.getElementById('monkey-button').textContent = 'Give banana';
+    document.getElementById('penguin-button').textContent = 'Give fish';
+
+    document.getElementById('lion-button').addEventListener('click', function () {
+      document.getElementById('lion').textContent = 'Leo is happy now!';
+      message.textContent = 'You fed the lion.';
+    });
+
+    document.getElementById('monkey-button').addEventListener('click', function () {
+      document.getElementById('monkey').textContent = 'Milo ate the banana.';
+      message.textContent = 'You gave the monkey a banana.';
+    });
+
+    document.getElementById('penguin-button').addEventListener('click', function () {
+      document.getElementById('penguin').textContent = 'Pip got a fish.';
+      message.textContent = 'You gave the penguin a goofy fish hehe';
+    });
+  </script>
+</body>
+</html>

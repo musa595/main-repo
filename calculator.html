@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Calculator</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 40px;
+		}
+
+		button {
+			padding: 8px 14px;
+			margin: 10px 2px;
+		}
+	</style>
+</head>
+<body>
+	<input id="firstNumber" type="number" placeholder="First number">
+	<input id="secondNumber" type="number" placeholder="Second number">
+	<br>
+	<button data-operator="+">+</button>
+	<button data-operator="-">-</button>
+	<button data-operator="*">*</button>
+	<button data-operator="/">/</button>
+	<p id="result"></p>
+	<script>
+		function calculate(operator) {
+			var firstInput = document.getElementById("firstNumber").value;
+			var secondInput = document.getElementById("secondNumber").value;
+			var firstNumber = Number(firstInput);
+			var secondNumber = Number(secondInput);
+			var answer;
+
+			if (firstInput === "" || secondInput === "" || Number.isNaN(firstNumber) || Number.isNaN(secondNumber)) {
+				document.getElementById("result").textContent = "Please enter two numbers.";
+				return;
+			}
+
+			if (operator === "+") {
+				answer = firstNumber + secondNumber;
+			} else if (operator === "-") {
+				answer = firstNumber - secondNumber;
+			} else if (operator === "*") {
+				answer = firstNumber * secondNumber;
+			} else {
+				if (secondNumber === 0) {
+					document.getElementById("result").textContent = "Cannot divide by zero.";
+					return;
+				}
+				answer = firstNumber / secondNumber;
+			}
+
+			document.getElementById("result").textContent = "Answer: " + answer;
+		}
+
+		var buttons = document.querySelectorAll("[data-operator]");
+
+		buttons.forEach(function(button) {
+			button.addEventListener("click", function() {
+				calculate(button.dataset.operator);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <button id="btn" onclick="yo()">hehe</button>
+    <h1 id="1"></h1>
+    <h2 id="2"></h2>
+</body>
+<script>
+    class student {
+        constructor(name, age, grade, hobbies, gamer) {
+            this.name = name
+            this.age = age
+            this.grade = grade
+            this.hobbies = hobbies
+            this.gamer = gamer
+        }
+    }
+    document.getElementById("1")
+    document.getElementById("2")
+    let student1 = new student("musa", 12, 7, "gaming", " yessir")
+    let student2 = new student("JD", 12, 7, "coding", "hmmmmm maybe")
+
+    function yo() {
+        document.getElementById("1").innerHTML = student1.name + "<br>" + student1.age + "<br>" + student1.grade + "<br>" + student1.hobbies + "<br>" + student1.gamer + "<br>" + "<br>" + "<br>" + "<br>" + "<br>"
+        document.getElementById("2").innerHTML = student2.name + "<br>" + student2.age + "<br>" + student2.grade + "<br>" + student2.hobbies + "<br>" + student2.gamer + "<br>"
+
+    }
+</script>
+
+</html>

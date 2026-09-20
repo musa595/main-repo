@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p id="result"></p>
+    <button id="btn" defer>ehehhehe</button>
+    <button id="btn1" defer>feeffe</button>
+    
+</body>
+<script>
+    var hehe = ["mhehe", "hehehe", "hehehehehe", "hehehehehhehehee"]
+    var sorted = hehe.sort()
+    var reverse = sorted.reverse()
+
+
+    document.getElementById("btn").addEventListener("click", function() {
+        document.getElementById("result").innerHTML = (hehe)
+
+        document.getElementById("btn1").addEventListener("click", function() {
+            document.getElementById("result").innerHTML = ("")
+        })
+    })
+
+</script>
+
+</html>

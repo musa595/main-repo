@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goofy Superhero Power Cards</title>
+</head>
+
+<body>
+    <h1>My Superhero Power Cards</h1>
+    <div id="goofyCards"></div>
+    <script >
+        class GoofySuperhero {
+    constructor(goofyName, goofyPower, goofyWeakness) {
+        this.goofyName = goofyName;
+        this.goofyPower = goofyPower;
+        this.goofyWeakness = goofyWeakness;
+    }
+
+    showGoofyCard() {
+        return `<h2>${this.goofyName}</h2>
+        <p>Power: ${this.goofyPower}</p>
+        <p>Weakness: ${this.goofyWeakness}</p><hr>`;
+    }
+}
+
+var goofy1 = new GoofySuperhero("Captain Noodle", "Elastic Elbows", "Soup");
+var goofy2 = new GoofySuperhero("Mega Pickle", "Super Sour Power", "Sandwiches");
+var goofy3 = new GoofySuperhero("Thunder Tofu", "Electric Dinner", "Rain");
+var goofy4 = new GoofySuperhero("Sneezing Flash", "Turbo Achoo", "Dust");
+var goofy5 = new GoofySuperhero("Professor Wobble", "Mind Bubbles", "Straight lines");
+
+var goofyHeroes = [goofy1, goofy2, goofy3, goofy4, goofy5];
+var goofyCards = document.getElementById("goofyCards");
+
+goofyHeroes.forEach(function(goofyHero) {
+    goofyCards.innerHTML += goofyHero.showGoofyCard();
+});
+    </script>
+</body>
+
+</html>

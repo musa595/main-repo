@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="hehe" onclick="loadprofile()">click me!</button>
+
+    <p id="result"></p>
+</body>
+<script>
+    function loadprofile() {
+        let savedData = '{ "name": "musa", "age": "12.7", "hobby": "gaming_or_webapp_creation" }';
+        let profile = JSON.parse(savedData)
+        document.getElementById("result").innerHTML =
+            "name:" + profile.name + "<br>" +
+            "age:" + profile.age + "<br>" +
+            "hobby:" + profile.hobby + "<br>";
+
+        console.log(typeof savedData)
+        console.log(profile)
+    }
+</script>
+
+</html>

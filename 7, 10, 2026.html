@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1" onclick="yo()">menu </button>
+</body>
+<script>
+    function yo() {
+    var choice = prompt("welcome to the area calculator that is just as easy to use another ai instead of this second hadn sketchy website typw 1 for circle and type 2 for a square.")
+    if (choice == '1') {
+        var radius = Number(prompt("enter the radius of the circle"))
+        var result = 3.14 * radius * radius
+        alert("the area of the circle is" + result)
+    }
+
+
+
+
+    if (choice == '2') {
+        var length = Number(prompt("enter the length of the squaer"))
+        var result = length * length
+        alert("the area of the square is" + result)
+    }
+}
+</script>
+
+</html>

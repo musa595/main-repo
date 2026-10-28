@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certified Goofball Event 🎪</title>
+
+    <style>
+        body {
+            font-family: "Comic Sans MS", Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe1f2, #d9e7ff, #fff4b8);
+            text-align: center;
+            padding: 30px 15px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border: 4px dashed #ff73b9;
+            border-radius: 25px;
+            box-shadow: 8px 8px 0 #b7a2ff;
+        }
+
+        h1 {
+            color: #ff4fa3;
+            font-size: 30px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        button {
+            background: #ff65ad;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 15px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #e64291;
+            transform: rotate(-1deg) scale(1.03);
+        }
+
+        #feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #6845b5;
+        }
+
+        #pass {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            border: 3px dotted #ff65ad;
+            border-radius: 18px;
+            background: #fff0f8;
+        }
+
+        .emoji {
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="emoji">🤡🎪🛸</div>
+
+    <h1>THE GOOFBALL GALA</h1>
+
+    <p>Register now. Become a certified legend.</p>
+    <p>⚠️ Seriousness levels will be checked at the door.</p>
+
+    <form id="eventForm">
+        <input type="text" id="name"
+            placeholder="Your legendary name">
+
+        <input type="email" id="email"
+            placeholder="Your email (no carrier pigeons)">
+
+        <input type="number" id="age"
+            placeholder="Your age" min="1" max="120">
+
+        <select id="event">
+            <option value="">Choose your chaos...</option>
+            <option value="Dance Battle">💃 Awkward Dance Battle</option>
+            <option value="Gaming Tournament">🎮 Button-Mashing Olympics</option>
+            <option value="Meme Contest">🗿 Professional Meme Contest</option>
+            <option value="Nap Championship">😴 Competitive Napping</option>
+        </select>
+
+        <button type="submit">SECURE MY SPOT 🚀</button>
+    </form>
+
+    <div id="feedback"></div>
+
+    <div id="pass">
+        <div class="emoji">🎟️</div>
+        <h2>OFFICIAL GOOFBALL PASS</h2>
+        <p id="passName"></p>
+        <p id="passEvent"></p>
+        <p id="passCode"></p>
+        <p>Rank: Certified Chaos Agent 🏆</p>
+        <p>Show this pass to absolutely nobody important.</p>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("eventForm");
+    const feedback = document.getElementById("feedback");
+    const pass = document.getElementById("pass");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const age = Number(document.getElementById("age").value);
+        const eventChoice = document.getElementById("event").value;
+
+        pass.style.display = "none";
+
+        if (!name || !email || !age || !eventChoice) {
+            feedback.textContent =
+                "🚨 BRO, YOU FORGOT SOMETHING. COMPLETE EVERY FIELD!";
+            return;
+        }
+
+        if (age < 1 || age > 120) {
+            feedback.textContent =
+                "🤨 That age is looking a little suspicious...";
+            return;
+        }
+
+        if (!document.getElementById("email").checkValidity()) {
+            feedback.textContent =
+                "📧 That email is doing backflips. Enter a valid one!";
+            return;
+        }
+
+        feedback.textContent =
+            "⏳ Processing your goofball application... please remain goofy.";
+
+        setTimeout(function() {
+            const code = "GOOF-" +
+                Math.floor(100000 + Math.random() * 900000);
+
+            document.getElementById("passName").textContent =
+                "Legend: " + name;
+
+            document.getElementById("passEvent").textContent =
+                "Chosen chaos: " + eventChoice;
+
+            document.getElementById("passCode").textContent =
+                "Pass code: " + code;
+
+            feedback.textContent =
+                "🎉 YOU'RE IN! The council has approved your goofy energy.";
+
+            pass.style.display = "block";
+        }, 1800);
+    });
+</script>
+
+</body>
+</html>

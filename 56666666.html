@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Fixer Tool 🤓</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #fce7f3);
+            margin: 0;
+            padding: 35px 15px;
+            text-align: center;
+            color: #26334a;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px #0002;
+        }
+
+        h1 {
+            color: #4f46e5;
+        }
+
+        textarea, input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 6px;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        .result {
+            background: #f8fafc;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 12px;
+            text-align: left;
+            overflow-wrap: anywhere;
+        }
+
+        .disclosure {
+            font-size: 12px;
+            color: #777;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🛠️ Text Fixer Tool</h1>
+    <p>Fix your text before it starts acting goofy 🤡</p>
+
+    <textarea id="sentence"
+        placeholder="Type your sentence here..."></textarea>
+
+    <input id="findWord" type="text"
+        placeholder="Word to replace">
+
+    <input id="replaceWord" type="text"
+        placeholder="Replace it with">
+
+    <button onclick="fixText()">Fix My Text ✨</button>
+    <button onclick="checkTypes()">Check Data Types 🔍</button>
+    <button onclick="convertValue()">Convert Value 🔄</button>
+
+    <div class="result" id="result">
+        Your results will appear here!
+    </div>
+
+    <p class="disclosure">
+        🤖 AI Disclosure: I used AI for help with ideas, code, and styling
+        for this project.
+    </p>
+</div>
+
+<script>
+    function fixText() {
+        try {
+            const sentence = document.getElementById("sentence").value;
+            const findWord = document.getElementById("findWord").value;
+            const replaceWord = document.getElementById("replaceWord").value;
+
+            if (sentence.trim() === "") {
+                throw new Error("Enter some text first, legend! 😭");
+            }
+
+            let fixedText = sentence;
+
+            if (findWord !== "") {
+                fixedText = sentence.split(findWord).join(replaceWord);
+            }
+
+            document.getElementById("result").textContent =
+                "✨ Fixed Text:\n" + fixedText;
+
+        } catch (error) {
+            document.getElementById("result").textContent =
+                "🚨 Error: " + error.message;
+        }
+    }
+
+    function checkTypes() {
+        const sentence = document.getElementById("sentence").value;
+        const number = 123;
+        const isReady = true;
+
+        document.getElementById("result").textContent =
+            "🔍 DATA TYPE CHECK\n\n" +
+            "Your text: " + typeof sentence + "\n" +
+            "Example number: " + typeof number + "\n" +
+            "Example boolean: " + typeof isReady + "\n\n" +
+            "JavaScript is checking the vibes. 🤓";
+    }
+
+    function convertValue() {
+        const value = document.getElementById("sentence").value.trim();
+
+        try {
+            if (value === "") {
+                throw new Error("Enter a value to convert first!");
+            }
+
+            const numberValue = Number(value);
+
+            if (Number.isNaN(numberValue)) {
+                document.getElementById("result").textContent =
+                    "🔄 Number conversion failed!\n" +
+                    '"' + value + '" cannot be converted to a number.';
+            } else {
+                document.getElementById("result").textContent =
+                    "🔄 CONVERSION SUCCESS!\n\n" +
+                    "Original value: " + value + "\n" +
+                    "Converted number: " + numberValue + "\n" +
+                    "Data type: " + typeof numberValue;
+            }
+
+        } catch (error) {
+            document.getElementById("result").textContent =
+                "🚨 Error: " + error.message;
+        }
+    }
+</script>
+
+</body>
+</html>

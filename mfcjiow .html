@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<h1 id="h1"  style="font: bolder; color: blue; text-shadow: 35px;">stopwatch</h1>
+
+<p id="div1">
+<span id="seconds">00</span>: <span id="milliseconds">00</span>
+</p>
+
+<div id="div2">
+    <button id="button-start">Start</button>
+<button id="button-stop">Stop</button>
+<button id="button-reset">Reset</button>
+</div>
+
+
+</div>
+<script>
+    window.onload = function() {
+
+let seconds = 0;
+let milliseconds = 0;
+let interval = null;
+
+const appendMilliseconds = document.getElementById("milliseconds");
+const appendSeconds = document.getElementById("seconds");
+
+const buttonstart = document.getElementById("button-start");
+const buttonstop = document.getElementById("button-stop");
+const buttonreset = document.getElementById("button-reset");
+
+function updatedisplay(){
+
+appendMilliseconds.innerText = String(milliseconds).padStart(2, "0");
+appendSeconds.innerText = String(seconds).padStart(2, "0");
+
+}
+
+function starttimer(){
+
+milliseconds++;
+
+if (milliseconds > 99) {
+milliseconds = 0;
+seconds++;
+}
+
+updatedisplay();
+
+}
+
+updatedisplay();
+
+buttonstart.onclick = function(){
+
+if (interval === null) {
+interval = setInterval(starttimer, 10);
+}
+
+}
+
+buttonstop.onclick = function(){
+    clearInterval(interval)
+    interval=null
+
+    
+
+}
+
+buttonreset.onclick = function() {
+    clearInterval(interval)
+    interval=null
+    milliseconds=0
+    seconds=0
+    updatedisplay()
+}
+}
+</script>
+
+</body>
+</html>

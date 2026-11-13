@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>automatic slideshow</h2>
+    <img id="slideshow" width="400" height="350" src="gaming pc 1.jpg" alt="">
+    <button id="btn" onclick="btn()">start slideshow</button>
+    <button id="btn2" onclick="btnstop()">view current pc</button>
+</body>
+<script>
+    
+var images = [
+    "gaming pc 1.jpg",
+    "gaming pc 2.jpg",
+    "gaming pc 3.jpg",
+    "gaming pc 4.jpg"
+];
+ var t
+
+
+var myIndex = 0;
+function carousel() {
+    myIndex++;
+    if (myIndex >= images.length) {
+        myIndex = 0;
+}
+
+document.getElementById("slideshow").src = images[myIndex]
+}
+
+
+
+
+function btn() {
+   
+t = setInterval(carousel, 3000);
+
+
+}
+
+function btnstop() {
+
+ 
+    clearInterval(t)
+}
+</script>
+</html>
